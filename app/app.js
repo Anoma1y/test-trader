@@ -12,7 +12,7 @@ class App extends Component {
 
         this.state = {
             balance: {
-                USD: 50000, BTC: 0, ETH: 0,XRP: 0, BCH: 0, ADA: 0, NEO: 0, LTC: 0, XLM: 0, EOS: 0, XEM: 0
+                USD: 1000, BTC: 0, ETH: 0,XRP: 0, BCH: 0, ADA: 0, NEO: 0, LTC: 0, XLM: 0, EOS: 0, XEM: 0
             },
             historyList: []
         }
