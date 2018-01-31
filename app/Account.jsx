@@ -5,9 +5,6 @@ import { Component } from 'react';
 class Account extends Component {
 	constructor(props){
         super(props);
-        // this.state = {
-        //     balance: this.props.balance
-        // }
     }
    
     render() {

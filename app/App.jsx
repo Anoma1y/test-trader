@@ -51,13 +51,11 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         historyList: state.historyReducer,
-        balance: state.balanceReducer,
-        exchangeRates: state.exchangeRatesReducer
+        balance: state.balanceReducer
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateExchangeRates: (obj) => dispatch({type: "UPDATE_EXCHANGERATES", payload: obj}),
         updateHistoryList: (obj) => dispatch({type: "UPDATE_HISTORY_LIST", payload: obj}),
         updateBalance: (obj) => dispatch({type: "UPDATE_BALANCE", payload: obj})
     }
