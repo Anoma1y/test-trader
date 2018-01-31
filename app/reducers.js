@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 const BALANCE = {
-    USD: 100000, BTC: 0, ETH: 0,XRP: 0, BCH: 0, ADA: 0, NEO: 0, LTC: 0, XLM: 0, EOS: 0, XEM: 0
+    USD: 1000, BTC: 0, ETH: 0,XRP: 0, BCH: 0, ADA: 0, NEO: 0, LTC: 0, XLM: 0, EOS: 0, XEM: 0
 }
 const historyList = [];
 
@@ -15,7 +15,6 @@ const balanceReducer = (state = BALANCE, action) => {
 const historyReducer = (state = historyList, action) => {
     switch(action.type) {
         case "UPDATE_HISTORY_LIST":
-            console.log(state)
             return state.concat(action.payload)  
     }
     return state
