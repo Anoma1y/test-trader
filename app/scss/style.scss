@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+$font: "Oswald", sans-serif;
+body {
+	font-family: $font;
+}
+.container {
+	max-width: 1140px;
+	min-width: 320px;
+	width: 100%;
+	margin: 20px auto;
+	display: flex;
+	justify-content: space-between;
+}
+.left-block {
+	width: 30%;
+	position: relative;
+	padding: 10px;
+	&:after {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 100%;
+		top: 0;
+		width: 1px;
+		height: 100%;
+		background-color: rgba(0,0,0,.5);
+	}
+}
+.right-block {
+	width: 68%;
+}
+h3 {
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.balance {
+	border-bottom: 1px solid rgba(0,0,0,.5);
+	padding-bottom: 20px;
+	&-info {
+		text-align: center;
+		margin-top: 30px;
+		width: 200px;
+		.price-item {
+			padding: 3px 0;
+			display: flex;
+			justify-content: space-between;
+			border-bottom: 1px solid rgba(0,0,0,.2);
+		}
+		p {
+			font-weight: bold;
+		}
+		span {
+			font-weight: lighter;
+		}
+	}
+}
+.calculator {
+	margin-top: 20px;
+	.current-currency {
+		select {
+			width: 80%;
+			display: block;
+			margin: 10px auto;
+			height: 30px;
+			font-family: $font;
+			font-weight: lighter;
+			border-color: rgba(0,0,0,.4);
+		}
+	}
+	.converter {
+		display: flex;
+		justify-content: space-between;
+		padding: 10px 0;
+		div {
+			width: 45%;
+			display: flex;
+			flex-direction: column;
+		}
+		span {
+			padding: 5px 0;
+			display: block;
+		}
+		input {
+			display: block;
+			width: 100%;
+			height: 30px;
+			padding: 0;
+			font-family: $font;
+			border: 1px solid rgba(0,0,0,.2);
+		}
+	}
+
+	.converter-btn {
+		display: flex;
+		justify-content: space-between;
+		input {
+			font-family: $font;
+			text-transform: uppercase;
+			cursor: pointer;
+			width: 45%;
+			height: 30px;
+			border: 1px solid;
+		}
+		.soldCrypto {
+			background-color: rgba(245,207,206, .7);
+			border-style: rgba(255,100,100, .7); 
+		}
+		.buyCrypto {
+			background-color: rgba(205,227,206,.7);
+			border-style: rgb(88, 161, 91); 			
+		}
+	}
+}
+.history {
+	margin-top: 10px;
+	.history-list {
+		padding: 30px 10px;
+	}
+	table {
+		width: 100%;
+		text-align: center;
+		th {
+			padding: 10px 0;
+			border: 1px solid #000000;
+		}
+		td {
+			padding: 5px 0;
+			border-bottom: 1px solid rgba(0,0,0,.3);
+		}
+	}
+	.td-crypto-sold {
+		color: rgba(255,100,100, .7);
+	}
+	.td-crypto-buy {
+		color: rgba(125, 221, 87, 0.7);
+	}
+}
