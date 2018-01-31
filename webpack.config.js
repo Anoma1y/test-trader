@@ -5,7 +5,7 @@ module.exports = {
     context: path.join(__dirname, '/app'),
   
     entry: [
-        './app.js', 
+        './index.js', 
         './scss/style.scss'
     ],
   

@@ -26,6 +26,7 @@ class Calculator extends Component {
         this.buyCrypto = this.buyCrypto.bind(this);
         this.soldCrypto = this.soldCrypto.bind(this);
     }
+    
     //JSON запрос к курсу валют с добавлением их в состояния
     componentDidMount() {
         //Получение курса валют
@@ -38,12 +39,8 @@ class Calculator extends Component {
                 price: (this.state.usd / response.data[0].price_usd).toFixed(6)
             });
         })
-        console.log("Did Mount");
     }
 
-    componentDidUpdate() {
-        console.log(this.state.transferData)
-    }
     //Функция назначения текущей валюты
     currentCurrencyHandler(e) {
         let id = parseInt(e.target.value);

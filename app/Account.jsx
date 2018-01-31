@@ -5,9 +5,9 @@ import { Component } from 'react';
 class Account extends Component {
 	constructor(props){
         super(props);
-        this.state = {
-            balance: this.props.balance
-        }
+        // this.state = {
+        //     balance: this.props.balance
+        // }
     }
    
     render() {
@@ -16,10 +16,10 @@ class Account extends Component {
                 <h3>Мои балансы</h3>
                 <div className="balance-info">
                 {
-                    Object.keys(this.state.balance).map((item, i) =>{
+                    Object.keys(this.props.balance).map((item, i) =>{
                         return (
                             <div key={i} className="price-item">
-                                <p>{item}:</p><span>{this.state.balance[item]}</span>
+                                <p>{item}:</p><span>{this.props.balance[item]}</span>
                             </div>);
                     })
                 }
