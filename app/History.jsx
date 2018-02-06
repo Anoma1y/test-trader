@@ -2,9 +2,10 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 
-class History extends Component {
+export default class History extends Component {
 	constructor(props){
         super(props);
+       
     }
    
     render() {
@@ -46,4 +47,3 @@ class History extends Component {
     }
 }
 
-export default History;

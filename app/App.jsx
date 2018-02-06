@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Account from './Account.jsx';
+import {Account} from './Account.jsx';
 import Calculator from './Calculator.jsx';
 import History from './History.jsx';
 import { connect } from 'react-redux';
@@ -13,7 +13,7 @@ class App extends Component {
         super(props);
     }
 
-    updateBalanceBuy(cryptoName, data) {
+    updateBalanceBuy = (cryptoName, data) => {
         let obj = this.props.balance;
         obj["USD"] -= data.USD; 
         obj[cryptoName] += data.CRYPTO;
@@ -21,7 +21,7 @@ class App extends Component {
         this.props.updateHistoryList(history);
         this.props.updateBalance(obj);
     }
-    updateBalanceSold(cryptoName, data) {
+    updateBalanceSold = (cryptoName, data) => {
         let obj = this.props.balance;
         obj["USD"] += data.USD; 
         obj[cryptoName] -= data.CRYPTO;
@@ -30,19 +30,20 @@ class App extends Component {
         this.props.updateBalance(obj);
     }
     render() {
+        const {balance, historyList} = this.props;
         return (
             <div className="container">
                 <div className="left-block">
-                    <Account balance={this.props.balance}
+                    <Account balance={balance}
                     />
                     <Calculator 
-                        balance={this.props.balance}
-                        updateBalanceBuy={this.updateBalanceBuy.bind(this)}
-                        updateBalanceSold={this.updateBalanceSold.bind(this)}
+                        balance={balance}
+                        updateBalanceBuy={this.updateBalanceBuy}
+                        updateBalanceSold={this.updateBalanceSold}
                     />
                 </div>
                 <div className="right-block">
-                    <History historyList={this.props.historyList}/>
+                    <History historyList={historyList}/>
                 </div>
             </div>
         )

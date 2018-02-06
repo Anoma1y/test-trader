@@ -20,15 +20,10 @@ class Calculator extends Component {
             },
             
         }
-        this.currentCurrencyHandler = this.currentCurrencyHandler.bind(this);
-        this.transferToUSD = this.transferToUSD.bind(this);
-        this.transferToCryptoСurrency = this.transferToCryptoСurrency.bind(this);
-        this.buyCrypto = this.buyCrypto.bind(this);
-        this.soldCrypto = this.soldCrypto.bind(this);
     }
     
     //JSON запрос к курсу валют с добавлением их в состояния
-    componentDidMount() {
+    componentDidMount = () => {
         //Получение курса валют
         axios.get(`https://api.coinmarketcap.com/v1/ticker/?limit=10`)
         .then(response => {
@@ -42,7 +37,7 @@ class Calculator extends Component {
     }
 
     //Функция назначения текущей валюты
-    currentCurrencyHandler(e) {
+    currentCurrencyHandler = e => {
         let id = parseInt(e.target.value);
         this.setState({
             currentCurrency: this.state.currency[id],
@@ -57,7 +52,7 @@ class Calculator extends Component {
     }
 
     //Перевод USD в криптовалюту
-    transferToCryptoСurrency(e) {
+    transferToCryptoСurrency = e => {
         let val = e.target.value;
         let total = 0;
         if(val.match(this.pattern)){
@@ -72,9 +67,8 @@ class Calculator extends Component {
             })
         }
     }
-
     //Перевод криптовалюты в USD
-    transferToUSD(e) {
+    transferToUSD = e => {
         let val = e.target.value;
         let total = 0;
         if(val.match(this.pattern)){
@@ -90,7 +84,7 @@ class Calculator extends Component {
         }
     }
     //Проверка наличия денег
-    checkMoney() {
+    checkMoney = () => {
         if(this.state.transferData.USD > this.state.balance.USD) {
             alert("Недостаточно денег");
         } else {
@@ -98,7 +92,7 @@ class Calculator extends Component {
         }
     }
     //Проверка наличия крипты
-    checkAvailabilityCrypto(cryptoName, count) {
+    checkAvailabilityCrypto = (cryptoName, count) => {
         if (this.state.balance[cryptoName] > 0 && this.state.balance[cryptoName] >= count) {
             return true
         } else {
@@ -106,7 +100,7 @@ class Calculator extends Component {
         }
     }
     //Покупка крипты
-    buyCrypto(e) {
+    buyCrypto = e => {
         const cryptoName = e.target.dataset.type;
         const transferData = this.state.transferData;
         const CRYPTO = transferData.CRYPTO;
@@ -118,7 +112,7 @@ class Calculator extends Component {
         }
     }
     //Продажа крипты
-    soldCrypto(e) {
+    soldCrypto = e => {
         const cryptoName = e.target.dataset.type;
         const transferData = this.state.transferData;
         const CRYPTO = transferData.CRYPTO;
